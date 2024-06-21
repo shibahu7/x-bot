@@ -7,6 +7,11 @@ from xbot.confing import config
 
 
 def main():
+    debug_dir = os.path.join(os.getcwd(), "debug")
+    isdebug = os.path.isdir(os.path.join(os.getcwd(), "debug"))
+    if not isdebug:
+        os.makedirs(debug_dir)
+
     isprofile = os.path.isdir(os.path.join(os.getcwd(), "profile"))
     bot = Tweetbot(
         config["EMAIL"], config["PASSWORD"], config["USERNAME"], config["USER_AGENT"]

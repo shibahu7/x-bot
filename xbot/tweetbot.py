@@ -41,8 +41,9 @@ class Tweetbot:
             elm.send_keys(self.email)
             elm.send_keys(Keys.RETURN)
             time.sleep(5)
-        except:
-            driver.save_screenshot("debug-login.png")
+        except Exception as e:
+            print(f"emailの入力中にエラーが発生しました: {str(e)}")
+            driver.save_screenshot("debug/debug-login.png")
             pass
 
         # sometimes twitter warns unusual access
@@ -52,8 +53,9 @@ class Tweetbot:
             elm.send_keys(self.username)
             elm.send_keys(Keys.RETURN)
             time.sleep(5)
-        except:
-            driver.save_screenshot("debug-username.png")
+        except Exception as e:
+            print(f"usernameの入力中にエラーが発生しました: {str(e)}")
+            driver.save_screenshot("debug/debug-username.png")
             pass
 
         # send password
@@ -62,8 +64,9 @@ class Tweetbot:
             elm.send_keys(self.password)
             elm.send_keys(Keys.RETURN)
             time.sleep(5)
-        except:
-            driver.save_screenshot("debug-password.png")
+        except Exception as e:
+            print(f"passwordの入力中にエラーが発生しました: {str(e)}")
+            driver.save_screenshot("debug/debug-password.png")
             pass
 
     # post text-only
@@ -78,11 +81,12 @@ class Tweetbot:
 
         # click the tweet button
         try:
-            elm = driver.find_element(By.XPATH, "//div[@data-testid='tweetButton']")
+            elm = driver.find_element(By.XPATH, "//button[@data-testid='tweetButton']")
             elm.click()
             time.sleep(5)
-        except:
-            driver.save_screenshot("debug-tweet.png")
+        except Exception as e:
+            print(f"tweetの入力中にエラーが発生しました: {str(e)}")
+            driver.save_screenshot("debug/debug-tweet.png")
             pass
 
     # post with media
@@ -105,15 +109,17 @@ class Tweetbot:
             elm = driver.find_element(By.XPATH, "//input[@data-testid='fileInput']")
             elm.send_keys(media_files)
             time.sleep(5)
-        except:
-            driver.save_screenshot("debug-media-files.png")
+        except Exception as e:
+            print(f"mediaアップロード中にエラーが発生しました: {str(e)}")
+            driver.save_screenshot("debug/debug-media-files.png")
             pass
 
         # click the tweet button
         try:
-            elm = driver.find_element(By.XPATH, "//div[@data-testid='tweetButton']")
+            elm = driver.find_element(By.XPATH, "//button[@data-testid='tweetButton']")
             elm.click()
             time.sleep(5)
-        except:
-            driver.save_screenshot("debug-tweet-media.png")
+        except Exception as e:
+            print(f"media付のtweetの投稿中にエラーが発生しました: {str(e)}")
+            driver.save_screenshot("debug/debug-tweet-media.png")
             pass
