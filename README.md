@@ -2,6 +2,11 @@
 
 Qiitaの[Seleniumを用いたTwitterへのログイン及び投稿](https://qiita.com/rinodrops/items/f1cd9c3ddf6cd8a20d05)を参考にした。
 
+```
+「twikit」という素晴らしいライブラリを発見したのでこちらのリポジトリはいらない子状態...
+https://github.com/d60/twikit
+```
+
 ## 機能一覧
 
 - [x] twitter のログイン
